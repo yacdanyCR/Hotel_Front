@@ -1,8 +1,9 @@
 import React from 'react'
+import TabsComponent from '../Components/TabsComponent/TabsComponent'
 
 export const DashboardPage = () => {
     return (
-        <div>dashboardPage</div>
+        <TabsComponent />
     )
 }
 
