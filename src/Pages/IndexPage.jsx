@@ -8,13 +8,13 @@ export const IndexPage = () => {
     return (
         <>
             <main>
+                <button onClick={() => setAuth(true)}>Login</button>
+                <button onClick={() => setAuth(false)}>Log out</button>
                 {auth ? (
                     <DashboardPage />
                 ) : (
                     <LoginPage />
                 )}
-                <button onClick={() => setAuth(true)}>Login</button>
-                <button onClick={() => setAuth(false)}>Log out</button>
             </main>
         </>
     )
