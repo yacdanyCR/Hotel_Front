@@ -25,10 +25,14 @@
     height: 500px;
 }
 
+.login input,
+button {
+    padding: 10px;
+    border-color: lightskyblue;
+}
+
 .login>form>button {
     background-color: lightskyblue;
-    padding: 1rem;
-    border: none;
     width: 100px;
     cursor: pointer;
 }
