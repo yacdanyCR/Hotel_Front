@@ -13,7 +13,7 @@ export const LoginComponent = () => {
                             <img src="/img/img.png" alt="img" />
                         </div>
                         <div className='login'>
-                            <h1>Login</h1>
+                            <img src="/img/logo.png" alt="logo" />
                             <form action="#" method="get">
                                 <ImUser size={25} /><input type="text" placeholder='Username' /><br />
                                 <IoLockClosed size={25} /><input type="password" placeholder='password' />
