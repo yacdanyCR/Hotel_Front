@@ -1,5 +1,7 @@
 import React from 'react'
 import './style.css'
+import { ImUser } from "react-icons/im";
+import { IoLockClosed } from "react-icons/io5";
 
 export const LoginComponent = () => {
     return (
@@ -13,10 +15,8 @@ export const LoginComponent = () => {
                         <div className='login'>
                             <h1>Login</h1>
                             <form action="#" method="get">
-                                <span>Username</span>
-                                <input type="text" />
-                                <span>Password</span>
-                                <input type="password" />
+                                <ImUser size={25} /><input type="text" placeholder='Username' /><br />
+                                <IoLockClosed size={25} /><input type="password" placeholder='password' />
                                 <br />
                                 <button type='button' onClick={() => alert("Hola")}>Login</button>
                             </form>
