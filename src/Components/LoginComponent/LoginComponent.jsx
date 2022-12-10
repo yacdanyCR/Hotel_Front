@@ -2,6 +2,7 @@ import React from 'react'
 import './style.css'
 import { ImUser } from "react-icons/im";
 import { IoLockClosed } from "react-icons/io5";
+import ModalComponent from '../ModalComponent/ModalComponent';
 
 export const LoginComponent = () => {
     return (
@@ -20,6 +21,7 @@ export const LoginComponent = () => {
                                 <br />
                                 <button type='button' onClick={() => alert("Hola")}>Login</button>
                             </form>
+                            <ModalComponent />
                         </div>
                     </div>
                 </div>
