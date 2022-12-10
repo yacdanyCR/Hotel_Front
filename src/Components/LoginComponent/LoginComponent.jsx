@@ -21,7 +21,7 @@ export const LoginComponent = () => {
                                 <br />
                                 <button type='button' onClick={() => alert("Hola")}>Login</button>
                             </form>
-                            <ModalComponent />
+                            <ModalComponent message={"Register"} />
                         </div>
                     </div>
                 </div>

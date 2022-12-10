@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './style.css'
 
-export const ModalComponent = () => {
+export const ModalComponent = (props) => {
     const [modal, setModal] = useState("");
     const handleChange = (e) => {
         e.target.id === 'open' ? setModal("block") : setModal("none")
@@ -21,7 +21,7 @@ export const ModalComponent = () => {
                                     <input type="text" placeholder='Username' />
                                     <label htmlFor="" placeholder='Password'></label>
                                     <input type="password" placeholder='Password' />
-                                    <button type='button'>Register</button>
+                                    <button type='button'>Create an Account</button>
                                 </form>
                             </div>
                         </div>
@@ -31,7 +31,7 @@ export const ModalComponent = () => {
                     </div>
                 </div>
             </div>
-            <button id="open" onClick={(e) => handleChange(e)}>Open Modal</button>
+            <button className='open_modal' id="open" onClick={(e) => handleChange(e)}>{props.message}</button>
         </>
     )
 }

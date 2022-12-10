@@ -43,6 +43,7 @@ button {
 .login input,
 span {
     margin: 1rem;
+    text-align: center;
 }
 
 @media only screen and (max-width: 720px) {
