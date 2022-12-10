@@ -3,7 +3,7 @@ import DashboardPage from './DashboardPage';
 import LoginPage from './LoginPage';
 
 export const IndexPage = () => {
-    const [auth, setAuth] = useState(false);
+    const [auth, setAuth] = useState(true);
 
     return (
         <>

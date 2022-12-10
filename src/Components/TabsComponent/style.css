@@ -2,13 +2,6 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: "Open Sans";
-    background: #2c3e50;
-    color: #ecf0f1;
-    line-height: 1.618em;
-}
-
 .wrapper {
     max-width: 50rem;
     width: 100%;
@@ -71,6 +64,7 @@ body {
     border-bottom: 0.25rem solid #bdc3c7;
     opacity: 0;
     transition: all 0.35s;
+    width: 100%;
 }
 
 .tab-switch:checked+.tab-label {
