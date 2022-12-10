@@ -17,7 +17,7 @@ export const ModalComponent = (props) => {
                     <div className="modal-body">
                         <div className="modal_account">
                             <div className="container">
-                                <form action="#" method="post">
+                                <form method="post">
                                     <input type="text" placeholder='Username' />
                                     <label htmlFor="" placeholder='Password'></label>
                                     <input type="password" placeholder='Password' />
