@@ -18,6 +18,16 @@ export const TabsComponent = () => {
                     <label htmlFor="tab-2" className="tab-label">Bookings</label>
                     <div className="tab-content"></div>
                 </div>
+                <div className="tab">
+                    <input type="radio" name="css-tabs" id="tab-3" className="tab-switch" />
+                    <label htmlFor="tab-3" className="tab-label">Add Guest</label>
+                    <div className="tab-content"></div>
+                </div>
+                <div className="tab">
+                    <input type="radio" name="css-tabs" id="tab-3" className="tab-switch" />
+                    <label htmlFor="tab-3" className="tab-label">Add Guest</label>
+                    <div className="tab-content"></div>
+                </div>
             </div>
         </div>
     )
