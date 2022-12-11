@@ -3,7 +3,7 @@ import DashboardPage from './DashboardPage';
 import LoginPage from './LoginPage';
 
 export const IndexPage = () => {
-    const [auth, setAuth] = useState(true);
+    const [auth, setAuth] = useState(false);
 
     return (
         <>
@@ -13,7 +13,7 @@ export const IndexPage = () => {
                 {auth ? (
                     <DashboardPage />
                 ) : (
-                    <LoginPage />
+                    <LoginPage setAuth={setAuth} />
                 )}
             </main>
         </>

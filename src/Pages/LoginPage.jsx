@@ -1,10 +1,10 @@
 import React from 'react'
 import LoginComponent from '../Components/LoginComponent/LoginComponent'
 
-export const LoginPage = () => {
+export const LoginPage = ({ setAuth }) => {
     return (
         <>
-            <LoginComponent />
+            <LoginComponent setAuth={setAuth} />
         </>
     )
 }
