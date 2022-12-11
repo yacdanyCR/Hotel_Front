@@ -1,10 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './style.css'
 import { ImUser } from "react-icons/im";
 import { IoLockClosed } from "react-icons/io5";
 import ModalComponent from '../ModalComponent/ModalComponent';
+import { authUser } from '../../services/authService';
 
 export const LoginComponent = () => {
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+
+    const handleLogin = async () => {
+        const response = await authUser(username, password);
+    }
     return (
         <section>
             <div className="login_Section">
@@ -14,11 +21,11 @@ export const LoginComponent = () => {
                     </div>
                     <div className='login'>
                         <img src="/img/logo.png" alt="logo" />
-                        <form method="get">
-                            <ImUser size={25} /><input type="text" placeholder='Username' /><br />
-                            <IoLockClosed size={25} /><input type="password" placeholder='password' />
+                        <form>
+                            <ImUser size={25} /><input type="text" placeholder='Username' onChange={(e) => setUsername(e.target.value)} /><br />
+                            <IoLockClosed size={25} /><input type="text" placeholder='password' onChange={(e) => setPassword(e.target.value)} />
                             <br />
-                            <button type='button' onClick={() => alert("Hola")}>Login</button>
+                            <button type='button' onClick={(e) => handleLogin()}>Login</button>
                         </form>
                         <ModalComponent message={"Register"} />
                     </div>
