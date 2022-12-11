@@ -27,9 +27,9 @@ export const ModalComponent = (props) => {
                         <div className="modal_account">
                             <div className="container">
                                 <form method="post" onSubmit={(e) => handleAccount(e)}>
-                                    <input type="text" placeholder='Username' onChange={(e) => setUsername(e.target.value)} />
+                                    <input type="text" placeholder='Username' onChange={(e) => setUsername(e.target.value)} required />
                                     <label htmlFor="password" placeholder='Password'></label>
-                                    <input type="password" placeholder='Password' onChange={(e) => setPassword(e.target.value)} />
+                                    <input type="password" placeholder='Password' onChange={(e) => setPassword(e.target.value)} required />
                                     <button type='submit'>Create an Account</button>
                                 </form>
                             </div>

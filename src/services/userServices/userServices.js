@@ -6,7 +6,7 @@ const registerUser = async (username, password) => {
             username,
             password
         }).then((response) => {
-            response.data.affectedRows > 0 ? alert("Se a creado su cuenta") : alert("No se pudo crear su cuenta");
+            response.data.created ? alert("Se a creado su cuenta") : alert("Ese usuario ya existe");
         })
     } catch (error) {
         console.log(error);

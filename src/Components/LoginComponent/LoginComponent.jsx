@@ -12,7 +12,7 @@ export const LoginComponent = ({ setAuth }) => {
     const handleLogin = async (e) => {
         e.preventDefault();
         const response = await authUser(username, password);
-        setAuth(response);
+        if (username !== "" && password !== "") setAuth(response);
     }
     return (
         <section>
@@ -24,8 +24,8 @@ export const LoginComponent = ({ setAuth }) => {
                     <div className='login'>
                         <img src="/img/logo.png" alt="logo" />
                         <form onSubmit={(e) => handleLogin(e)} method="POST">
-                            <ImUser size={25} /><input type="text" placeholder='Username' onChange={(e) => setUsername(e.target.value)} /><br />
-                            <IoLockClosed size={25} /><input type="password" placeholder='password' onChange={(e) => setPassword(e.target.value)} />
+                            <ImUser size={25} /><input type="text" placeholder='Username' onChange={(e) => setUsername(e.target.value)} required /><br />
+                            <IoLockClosed size={25} /><input type="password" placeholder='password' onChange={(e) => setPassword(e.target.value)} required />
                             <br />
                             <button type='submit'>Login</button>
 
