@@ -13,7 +13,7 @@ export const IndexPage = () => {
                 {auth ? (
                     <DashboardPage />
                 ) : (
-                    <LoginPage />
+                    <LoginPage setAuth={setAuth} />
                 )}
             </main>
         </>

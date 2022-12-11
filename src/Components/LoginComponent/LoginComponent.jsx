@@ -5,12 +5,13 @@ import { IoLockClosed } from "react-icons/io5";
 import ModalComponent from '../ModalComponent/ModalComponent';
 import { authUser } from '../../services/authService';
 
-export const LoginComponent = () => {
+export const LoginComponent = ({ setAuth }) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
     const handleLogin = async () => {
         const response = await authUser(username, password);
+        setAuth(response);
     }
     return (
         <section>
