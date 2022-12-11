@@ -10,6 +10,31 @@
     margin: 3rem 3rem;
 }
 
+.modal_input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 5px;
+}
+
+.modal_input input {
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+.img_modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #modal-content-guest {
     height: auto;
+}
+
+@media (max-width: 450px) {
+    .img_modal {
+        display: none;
+    }
 }

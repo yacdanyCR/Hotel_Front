@@ -3,6 +3,25 @@ import './style.css'
 
 export const AddGuestModalComponent = () => {
     const [modal, setModal] = useState("");
+    const [guest, setGuest] = useState({
+        name: "",
+        lastname: "",
+        birthdate: "",
+        country: "",
+        phone: "",
+        checkin: "",
+        checkout: "",
+        payment: ""
+    });
+
+    const handleGuest = (e) => {
+        const name = e.target.name;
+        const value = e.target.value;
+
+        setGuest((prev) => {
+            return { ...prev, [name]: value }
+        })
+    }
 
     const handleChange = (e) => {
         e.target.id === 'open' ? setModal("block") : setModal("none")
@@ -17,30 +36,48 @@ export const AddGuestModalComponent = () => {
                     <div className="modal-body">
                         <div className="modal_account">
                             <div className="container">
+                                <div className="img_modal">
+                                    <img src="/img/logo.png" alt="" srcset="" />
+                                </div>
                                 <form method="post">
-                                    <input type="text" placeholder='Name' required />
-                                    <input type="text" placeholder='Lastname' required />
-                                    <label htmlFor="birth">Bith Date</label>
-                                    <input type="date" placeholder='birth-date' />
-                                    <select name="" id="">
-                                        <option value="" defaultValue={"costarricense"}>Costarricense</option>
-                                        <option value="">Mexicano</option>
-                                        <option value="">Americano</option>
-                                        <option value="">Argentino</option>
-                                    </select>
-                                    <input type="date" placeholder='birth-date' />
-                                    <input type="number" placeholder='Phone' />
-                                    <input type="number" placeholder='Number' />
-                                    <label htmlFor="check-in">Check in </label>
-                                    <input type="date" />
-                                    <label htmlFor="check-out">Check out </label>
-                                    <input type="date" />
-                                    <label htmlFor="payment-method">Payment Method</label>
-                                    <select name="" id="">
-                                        <option value="">Credit Card</option>
-                                        <option value="">Paypal</option>
-                                        <option value="">Cash</option>
-                                    </select>
+                                    <div className="modal_input">
+                                        <input type="text" name='name' placeholder='Name' required onChange={(e) => handleGuest(e)} />
+                                    </div>
+                                    <div className="modal_input">
+                                        <input type="text" name='lastname' placeholder='Lastname' required onChange={(e) => handleGuest(e)} />
+                                    </div>
+                                    <div className="modal_input">
+                                        <label htmlFor="birth" name='birth_date'>Bith Date</label>
+                                        <input type="date" name='birthdate' placeholder='birth-date' onChange={(e) => handleGuest(e)} />
+                                    </div>
+                                    <div className="modal_input">
+                                        <select name="country" onChange={(e) => handleGuest(e)} >
+                                            <option value="Costarican" defaultValue={"costarricense"}>Costarricense</option>
+                                            <option value="Mexican">Mexicano</option>
+                                            <option value="American">Americano</option>
+                                            <option value="Argentin">Argentino</option>
+                                        </select>
+                                    </div>
+                                    <div className="modal_input">
+                                        <input type="number" name='phone' placeholder='Phone' onChange={(e) => handleGuest(e)} />
+
+                                    </div>
+                                    <div className="modal_input">
+                                        <label htmlFor="check-in">Check in </label>
+                                        <input type="date" name='checkin' onChange={(e) => handleGuest(e)} />
+                                    </div>
+                                    <div className="modal_input">
+                                        <label htmlFor="check-out">Check out </label>
+                                        <input type="date" name='checkout' onChange={(e) => handleGuest(e)} />
+                                    </div>
+                                    <div className="modal_input">
+                                        <label htmlFor="payment-method">Payment Method</label>
+                                        <select name="payment" onChange={(e) => handleGuest(e)} >
+                                            <option value="Credit Card">Credit Card</option>
+                                            <option value="Paypal">Paypal</option>
+                                            <option value="Cash">Cash</option>
+                                        </select>
+                                    </div>
                                     <br />
                                     <button type='submit'>Add Guest</button>
                                 </form>
