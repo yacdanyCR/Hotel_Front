@@ -1,10 +1,19 @@
 import React, { useState } from 'react'
+import { registerUser } from '../../services/userServices/userServices';
 import './style.css'
 
 export const ModalComponent = (props) => {
     const [modal, setModal] = useState("");
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+
     const handleChange = (e) => {
         e.target.id === 'open' ? setModal("block") : setModal("none")
+    }
+
+    const handleAccount = async (e) => {
+        e.preventDefault();
+        return await registerUser(username, password);
     }
     return (
         <>
@@ -17,17 +26,14 @@ export const ModalComponent = (props) => {
                     <div className="modal-body">
                         <div className="modal_account">
                             <div className="container">
-                                <form method="post">
-                                    <input type="text" placeholder='Username' />
-                                    <label htmlFor="" placeholder='Password'></label>
-                                    <input type="password" placeholder='Password' />
-                                    <button type='button'>Create an Account</button>
+                                <form method="post" onSubmit={(e) => handleAccount(e)}>
+                                    <input type="text" placeholder='Username' onChange={(e) => setUsername(e.target.value)} />
+                                    <label htmlFor="password" placeholder='Password'></label>
+                                    <input type="password" placeholder='Password' onChange={(e) => setPassword(e.target.value)} />
+                                    <button type='submit'>Create an Account</button>
                                 </form>
                             </div>
                         </div>
-                    </div>
-                    <div className="modal-footer">
-                        <h3>Modal Footer</h3>
                     </div>
                 </div>
             </div>

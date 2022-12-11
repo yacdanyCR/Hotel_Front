@@ -9,7 +9,8 @@ export const LoginComponent = ({ setAuth }) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleLogin = async () => {
+    const handleLogin = async (e) => {
+        e.preventDefault();
         const response = await authUser(username, password);
         setAuth(response);
     }
@@ -22,13 +23,14 @@ export const LoginComponent = ({ setAuth }) => {
                     </div>
                     <div className='login'>
                         <img src="/img/logo.png" alt="logo" />
-                        <form>
+                        <form onSubmit={(e) => handleLogin(e)} method="POST">
                             <ImUser size={25} /><input type="text" placeholder='Username' onChange={(e) => setUsername(e.target.value)} /><br />
-                            <IoLockClosed size={25} /><input type="text" placeholder='password' onChange={(e) => setPassword(e.target.value)} />
+                            <IoLockClosed size={25} /><input type="password" placeholder='password' onChange={(e) => setPassword(e.target.value)} />
                             <br />
-                            <button type='button' onClick={(e) => handleLogin()}>Login</button>
+                            <button type='submit'>Login</button>
+
                         </form>
-                        <ModalComponent message={"Register"} />
+                        <ModalComponent message={"New User"} />
                     </div>
                 </div>
             </div>
