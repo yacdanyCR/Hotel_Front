@@ -1,5 +1,5 @@
-import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { getAllGuest } from '../../services/guestServices/guestServices'
 import AddGuestModalComponent from '../AddGuestModalComponent/AddGuestModalComponent'
 import TableComponent from '../TableComponent/TableComponent'
 import './style.css'
@@ -8,19 +8,8 @@ export const TabsComponent = () => {
     const [guest, setGuest] = useState([]);
 
     useEffect(() => {
-        getAllGuest()
+        getAllGuest(setGuest);
     }, [])
-
-    const getAllGuest = async () => {
-        try {
-            return await axios.get("http://localhost:3000/api/guest")
-                .then((data) => {
-                    setGuest(data.data)
-                })
-        } catch (error) {
-
-        }
-    }
 
     return (
         <div className="wrapper">

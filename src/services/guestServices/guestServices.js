@@ -1,10 +1,10 @@
 import axios from "axios"
 
-const getAllGuest = async () => {
+const getAllGuest = async (setGuest) => {
     try {
         return await axios.get("http://localhost:3000/api/guest")
             .then((data) => {
-                console.log(data.data)
+                setGuest(data.data);
             })
     } catch (error) {
 
