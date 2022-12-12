@@ -3,7 +3,7 @@
     justify-content: center;
     width: 100px;
     margin: 1rem 0;
-    background-color: cornflowerblue;
+    background-color: lightgreen;
 }
 
 .modal-body {
@@ -17,10 +17,12 @@
     margin: 5px;
 }
 
-.modal_input input {
-    border-radius: 5px;
+.modal_input input,
+select {
+    border-radius: 10px;
     padding: 5px;
     margin-top: 10px;
+    border-style: outset;
 }
 
 .img_modal {

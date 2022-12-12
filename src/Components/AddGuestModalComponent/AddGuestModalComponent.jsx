@@ -26,6 +26,10 @@ export const AddGuestModalComponent = () => {
     const handleChange = (e) => {
         e.target.id === 'open' ? setModal("block") : setModal("none")
     }
+
+    const handleSubmitGuest = (e) => {
+        e.preventDefault()
+    }
     return (
         <>
             <div className="modal" style={{ display: modal }}>
@@ -37,9 +41,9 @@ export const AddGuestModalComponent = () => {
                         <div className="modal_account">
                             <div className="container">
                                 <div className="img_modal">
-                                    <img src="/img/logo.png" alt="" srcset="" />
+                                    <img src="/img/logo.png" />
                                 </div>
-                                <form method="post">
+                                <form onSubmit={(e) => handleSubmitGuest(e)} method="post">
                                     <div className="modal_input">
                                         <input type="text" name='name' placeholder='Name' required onChange={(e) => handleGuest(e)} />
                                     </div>

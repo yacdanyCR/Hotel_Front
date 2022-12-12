@@ -38,8 +38,7 @@
     line-height: 2.75em;
     height: 3em;
     padding: 0 1.618em;
-    background: #1abc9c;
-    border-right: 0.125rem solid #16a085;
+    background: lightblue;
     color: #fff;
     cursor: pointer;
     top: 0;
@@ -52,7 +51,7 @@
 }
 
 .tab-content {
-    height: 12rem;
+    height: fit-content;
     position: absolute;
     z-index: 1;
     top: 2.75em;
