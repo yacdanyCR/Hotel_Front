@@ -9,6 +9,7 @@ export const TabsComponent = () => {
 
     useEffect(() => {
         getAllGuest(setGuest);
+        console.log("Me renderizo")
     }, [])
 
     return (
@@ -19,7 +20,7 @@ export const TabsComponent = () => {
                     <label htmlFor="tab-1" className="tab-label">Guests</label>
                     <div className="tab-content">
                         <AddGuestModalComponent />
-                        <TableComponent data={guest} />
+                        <TableComponent data={guest} setGuest={setGuest} />
                     </div>
                 </div>
                 <div className="tab">

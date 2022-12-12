@@ -1,8 +1,9 @@
 import React from 'react'
 import './style.css'
 import { AiFillDelete, AiOutlineForm } from "react-icons/ai";
+import { deleteGuest } from '../../services/userServices/userServices';
 
-export const TableComponent = ({ data }) => {
+export const TableComponent = ({ data, setGuest }) => {
     return (
         <>
             <table className='table_Data'>
@@ -23,7 +24,7 @@ export const TableComponent = ({ data }) => {
                                 <td>{el.phone}</td>
                                 <td>{el.country}</td>
                                 <td><AiOutlineForm /></td>
-                                <td><AiFillDelete /></td>
+                                <td onClick={() => deleteGuest(el.id, data, setGuest)}><AiFillDelete color='red' /></td>
                             </tr>
                         )
                     })}

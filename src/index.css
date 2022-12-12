@@ -7,3 +7,7 @@ body {
     background-attachment: fixed;
     font-family: 'Roboto', sans-serif;
 }
+
+svg {
+    cursor: pointer;
+}

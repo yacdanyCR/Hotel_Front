@@ -13,6 +13,20 @@ const registerUser = async (username, password) => {
     }
 }
 
+const deleteGuest = async (id, data, setGuest) => {
+    try {
+        axios.delete(`http://localhost:3000/api/guest/${id}`)
+            .then((response) => {
+                const newData = data.filter((el) => el.id !== id);
+                setGuest(newData);
+                return response
+            })
+    } catch (error) {
+
+    }
+}
+
 export {
-    registerUser
+    registerUser,
+    deleteGuest
 }
