@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './style.css'
 import { AiFillDelete, AiOutlineForm } from "react-icons/ai";
-import { deleteGuest } from '../../services/userServices/userServices';
+import { GuestContext } from '../../Context/GhuestContext';
+import { deleteGuest } from '../../services/guestServices/guestServices';
+import Moment from 'react-moment';
 
-export const TableComponent = ({ data, setGuest }) => {
+export const TableComponent = () => {
+    const { guest, setGuest } = useContext(GuestContext);
+
     const handleDelete = async (guestId) => {
-        const newData = data.filter((el) => el.id !== guestId);
+        const newData = guest.filter((el) => el.id !== guestId);
         setGuest(newData);
         deleteGuest(guestId);
     }
@@ -15,20 +19,22 @@ export const TableComponent = ({ data, setGuest }) => {
             <table className='table_Data'>
                 <thead>
                     <tr>
-                        <th>Id</th>
-                        <th>ID</th>
-                        <th>ID</th>
-                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Lastname</th>
+                        <th>Phone</th>
+                        <th>Birthdate</th>
+                        <th>Country</th>
                         <th colSpan={2}>Options</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {data.map((el) => {
+                    {guest.map((el) => {
                         return (
                             <tr key={el.id}>
                                 <td>{el.name}</td>
                                 <td>{el.lastname}</td>
                                 <td>{el.phone}</td>
+                                <td><Moment format="MM/DD/YYYY">{el.birthdate}</Moment></td>
                                 <td>{el.country}</td>
                                 <td><AiOutlineForm /></td>
                                 <td onClick={() => handleDelete(el.id)}><AiFillDelete color='red' /></td>

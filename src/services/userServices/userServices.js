@@ -13,18 +13,6 @@ const registerUser = async (username, password) => {
     }
 }
 
-const deleteGuest = async (id) => {
-    try {
-        axios.delete(`http://localhost:3000/api/guest/${id}`)
-            .then((response) => {
-                return response
-            })
-    } catch (error) {
-
-    }
-}
-
 export {
-    registerUser,
-    deleteGuest
+    registerUser
 }

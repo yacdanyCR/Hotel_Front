@@ -1,9 +1,13 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { GuestContext } from '../../Context/GhuestContext';
+import { addGuest } from '../../services/guestServices/guestServices';
 import './style.css'
 
-export const AddGuestModalComponent = ({ setGuest }) => {
+export const AddGuestModalComponent = () => {
+    const { guest, setGuest } = useContext(GuestContext);
+
     const [modal, setModal] = useState("");
-    const [guest, setNewGuest] = useState({
+    const [newGuest, setNewGuest] = useState({
         name: "",
         lastname: "",
         birthdate: "",
@@ -28,17 +32,8 @@ export const AddGuestModalComponent = ({ setGuest }) => {
     }
 
     const handleSubmitGuest = (e) => {
-        e.preventDefault()
-        const obj = {
-            id: 1,
-            name: "jack",
-            lastname: "mora",
-            phone: "828282",
-            birthdate: "466473",
-            country: "alemnaia"
-
-        }
-        setGuest(oldGuest => [...oldGuest, obj])
+        e.preventDefault();
+        addGuest(newGuest, setGuest);
     }
     return (
         <>
