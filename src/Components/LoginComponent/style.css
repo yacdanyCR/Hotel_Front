@@ -34,9 +34,9 @@ button {
 }
 
 .login>form>button {
-    background-color: lightskyblue;
+    background-color: lightblue;
     font-weight: bolder;
-    width: 100px;
+    width: 90%;
     cursor: pointer;
 }
 
