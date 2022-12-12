@@ -4,6 +4,12 @@ import { AiFillDelete, AiOutlineForm } from "react-icons/ai";
 import { deleteGuest } from '../../services/userServices/userServices';
 
 export const TableComponent = ({ data, setGuest }) => {
+    const handleDelete = async (guestId) => {
+        const newData = data.filter((el) => el.id !== guestId);
+        setGuest(newData);
+        deleteGuest(guestId);
+    }
+
     return (
         <>
             <table className='table_Data'>
@@ -13,6 +19,7 @@ export const TableComponent = ({ data, setGuest }) => {
                         <th>ID</th>
                         <th>ID</th>
                         <th>ID</th>
+                        <th colSpan={2}>Options</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -24,7 +31,7 @@ export const TableComponent = ({ data, setGuest }) => {
                                 <td>{el.phone}</td>
                                 <td>{el.country}</td>
                                 <td><AiOutlineForm /></td>
-                                <td onClick={() => deleteGuest(el.id, data, setGuest)}><AiFillDelete color='red' /></td>
+                                <td onClick={() => handleDelete(el.id)}><AiFillDelete color='red' /></td>
                             </tr>
                         )
                     })}

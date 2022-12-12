@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import './style.css'
 
-export const AddGuestModalComponent = () => {
+export const AddGuestModalComponent = ({ setGuest }) => {
     const [modal, setModal] = useState("");
-    const [guest, setGuest] = useState({
+    const [guest, setNewGuest] = useState({
         name: "",
         lastname: "",
         birthdate: "",
@@ -18,7 +18,7 @@ export const AddGuestModalComponent = () => {
         const name = e.target.name;
         const value = e.target.value;
 
-        setGuest((prev) => {
+        setNewGuest((prev) => {
             return { ...prev, [name]: value }
         })
     }
@@ -29,6 +29,16 @@ export const AddGuestModalComponent = () => {
 
     const handleSubmitGuest = (e) => {
         e.preventDefault()
+        const obj = {
+            id: 1,
+            name: "jack",
+            lastname: "mora",
+            phone: "828282",
+            birthdate: "466473",
+            country: "alemnaia"
+
+        }
+        setGuest(oldGuest => [...oldGuest, obj])
     }
     return (
         <>
@@ -41,14 +51,14 @@ export const AddGuestModalComponent = () => {
                         <div className="modal_account">
                             <div className="container">
                                 <div className="img_modal">
-                                    <img src="/img/logo.png" />
+                                    <img src="/img/logo.png" alt='logo' />
                                 </div>
                                 <form onSubmit={(e) => handleSubmitGuest(e)} method="post">
                                     <div className="modal_input">
-                                        <input type="text" name='name' placeholder='Name' required onChange={(e) => handleGuest(e)} />
+                                        <input type="text" name='name' placeholder='Name' onChange={(e) => handleGuest(e)} />
                                     </div>
                                     <div className="modal_input">
-                                        <input type="text" name='lastname' placeholder='Lastname' required onChange={(e) => handleGuest(e)} />
+                                        <input type="text" name='lastname' placeholder='Lastname' onChange={(e) => handleGuest(e)} />
                                     </div>
                                     <div className="modal_input">
                                         <label htmlFor="birth" name='birth_date'>Bith Date</label>

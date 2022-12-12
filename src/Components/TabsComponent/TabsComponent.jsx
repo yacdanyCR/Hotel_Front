@@ -18,7 +18,7 @@ export const TabsComponent = () => {
                     <input type="radio" name="css-tabs" id="tab-1" defaultChecked className="tab-switch" />
                     <label htmlFor="tab-1" className="tab-label">Guests</label>
                     <div className="tab-content">
-                        <AddGuestModalComponent />
+                        <AddGuestModalComponent setGuest={setGuest} />
                         <TableComponent data={guest} setGuest={setGuest} />
                     </div>
                 </div>
