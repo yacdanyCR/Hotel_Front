@@ -9,7 +9,6 @@ export const TabsComponent = () => {
 
     useEffect(() => {
         getAllGuest(setGuest);
-        console.log("Me renderizo")
     }, [])
 
     return (
