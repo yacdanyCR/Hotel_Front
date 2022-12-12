@@ -38,8 +38,25 @@ const deleteGuest = async (id) => {
     }
 }
 
+const updateCurrentGuest = async ({ name, lastname, phone, country }, id) => {
+    try {
+        return await axios.put(`http://localhost:3000/api/guest`, {
+            id,
+            name,
+            lastname,
+            phone,
+            country
+        }).then((response) => {
+            console.log(response)
+        })
+    } catch (error) {
+
+    }
+}
+
 export {
     getAllGuest,
     deleteGuest,
-    addGuest
+    addGuest,
+    updateCurrentGuest
 }
