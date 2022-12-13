@@ -38,7 +38,7 @@ const deleteGuest = async (id) => {
     }
 }
 
-const updateCurrentGuest = async ({ name, lastname, phone, country }, id) => {
+const updateCurrentGuest = async ({ id, name, lastname, phone, country }, setGuest) => {
     try {
         return await axios.put(`http://localhost:3000/api/guest`, {
             id,
@@ -46,8 +46,8 @@ const updateCurrentGuest = async ({ name, lastname, phone, country }, id) => {
             lastname,
             phone,
             country
-        }).then((response) => {
-            console.log(response)
+        }).then(() => {
+            getAllGuest(setGuest)
         })
     } catch (error) {
 

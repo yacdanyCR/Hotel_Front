@@ -3,7 +3,7 @@ import { GuestContext } from '../../Context/GhuestContext';
 import { addGuest } from '../../services/guestServices/guestServices';
 
 export const FormComponent = () => {
-    const { guest, setGuest } = useContext(GuestContext);
+    const { setGuest } = useContext(GuestContext);
     const [newGuest, setNewGuest] = useState({
         name: "",
         lastname: "",

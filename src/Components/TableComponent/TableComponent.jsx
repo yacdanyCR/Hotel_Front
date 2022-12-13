@@ -1,9 +1,10 @@
 import React, { useContext } from 'react'
 import './style.css'
-import { AiFillDelete, AiOutlineForm } from "react-icons/ai";
+import { AiFillDelete } from "react-icons/ai";
 import { GuestContext } from '../../Context/GhuestContext';
 import { deleteGuest } from '../../services/guestServices/guestServices';
 import Moment from 'react-moment';
+import ModalUpdate from '../ModalUpdate/ModalUpdate';
 
 export const TableComponent = () => {
     const { guest, setGuest } = useContext(GuestContext);
@@ -36,8 +37,8 @@ export const TableComponent = () => {
                                 <td>{el.phone}</td>
                                 <td><Moment format="MM/DD/YYYY">{el.birthdate}</Moment></td>
                                 <td>{el.country}</td>
-                                <td><AiOutlineForm /></td>
-                                <td onClick={() => handleDelete(el.id)}><AiFillDelete color='red' /></td>
+                                <td><ModalUpdate guest={el} /></td>
+                                <td onClick={() => handleDelete(el.id)}><AiFillDelete color='red' size={25} /></td>
                             </tr>
                         )
                     })}
