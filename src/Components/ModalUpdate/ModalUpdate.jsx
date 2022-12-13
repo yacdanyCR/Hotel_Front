@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react'
 import { AiOutlineForm } from "react-icons/ai";
-import Swal from 'sweetalert2';
 import { GuestContext } from '../../Context/GhuestContext';
 import { updateCurrentGuest } from '../../services/guestServices/guestServices';
 import './style.css'
@@ -30,12 +29,8 @@ export const ModalUpdate = ({ guest }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(updateGuest)
         updateCurrentGuest(updateGuest, setGuest);
         setModal("none");
-        Swal.fire('Information updated',
-            'You clicked the button!',
-            'success')
     }
     return (
         <>

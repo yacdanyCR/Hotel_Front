@@ -1,4 +1,5 @@
 import axios from "axios"
+import { successAlert } from "../../alerts/sweetAlert";
 
 const getAllGuest = async (setGuest) => {
     try {
@@ -47,7 +48,8 @@ const updateCurrentGuest = async ({ id, name, lastname, phone, country }, setGue
             phone,
             country
         }).then(() => {
-            getAllGuest(setGuest)
+            getAllGuest(setGuest);
+            successAlert("Information Updated.!");
         })
     } catch (error) {
 

@@ -1,4 +1,5 @@
 import axios from "axios";
+import { errorAlert, successAlert } from "../alerts/sweetAlert";
 
 const authUser = async (username, password) => {
     try {
@@ -6,7 +7,11 @@ const authUser = async (username, password) => {
             username,
             password
         }).then((response) => {
-            if (!response.data.auth) alert("Usuario o contraseña incorrecta..!!!");
+            if (!response.data.auth) {
+                errorAlert("Usuario o contraseña incorrecta.!");
+            } else {
+                successAlert("Welcome.!");
+            }
             return response.data.auth;
         })
     } catch (error) {
