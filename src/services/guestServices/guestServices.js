@@ -12,14 +12,17 @@ const getAllGuest = async (setGuest) => {
     }
 }
 
-const addGuest = async ({ name, lastname, birthdate, country, phone }, setGuest) => {
+const addGuest = async ({ name, lastname, birthdate, country, phone, checkin, checkout, payment }, setGuest) => {
     try {
         axios.post("http://localhost:3000/api/guest", {
             name,
             lastname,
             birthdate,
             country,
-            phone
+            phone,
+            checkin,
+            checkout,
+            payment
         }).then((response) => {
             getAllGuest(setGuest);
         })
