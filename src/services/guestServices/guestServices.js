@@ -1,4 +1,5 @@
 import axios from "axios"
+import { successAlert } from "../../alerts/sweetAlert";
 
 const getAllGuest = async (setGuest) => {
     try {
@@ -38,8 +39,26 @@ const deleteGuest = async (id) => {
     }
 }
 
+const updateCurrentGuest = async ({ id, name, lastname, phone, country }, setGuest) => {
+    try {
+        return await axios.put(`http://localhost:3000/api/guest`, {
+            id,
+            name,
+            lastname,
+            phone,
+            country
+        }).then(() => {
+            getAllGuest(setGuest);
+            successAlert("Information Updated.!");
+        })
+    } catch (error) {
+
+    }
+}
+
 export {
     getAllGuest,
     deleteGuest,
-    addGuest
+    addGuest,
+    updateCurrentGuest
 }
