@@ -1,4 +1,5 @@
 import axios from "axios";
+import { errorAlert, successAlert } from "../../alerts/sweetAlert";
 
 const registerUser = async (username, password) => {
     try {
@@ -6,7 +7,7 @@ const registerUser = async (username, password) => {
             username,
             password
         }).then((response) => {
-            response.data.created ? alert("Se a creado su cuenta") : alert("Ese usuario ya existe");
+            response.data.created ? successAlert("Account Created") : errorAlert("That username exist");
         })
     } catch (error) {
         console.log(error);
