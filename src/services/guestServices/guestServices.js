@@ -59,9 +59,22 @@ const updateCurrentGuest = async ({ id, name, lastname, phone, country }, setGue
     }
 }
 
+const searchGuest = async (search, setGuest) => {
+    try {
+        axios.get(`http://localhost:3000/api/guest/${search}`, {
+
+        }).then((response) => {
+            setGuest(response.data);
+        })
+    } catch (error) {
+
+    }
+}
+
 export {
     getAllGuest,
     deleteGuest,
     addGuest,
-    updateCurrentGuest
+    updateCurrentGuest,
+    searchGuest
 }
