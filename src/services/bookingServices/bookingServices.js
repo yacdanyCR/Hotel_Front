@@ -1,8 +1,8 @@
 import axios from "axios"
 
-const getBookings = async (setBookings) => {
+const getAllBookings = async (setBookings) => {
     try {
-        axios.get("http://localhost:3000/api/booking", {
+        return await axios.get("http://localhost:3000/api/booking", {
 
         }).then((response) => {
             setBookings(response.data);
@@ -12,6 +12,19 @@ const getBookings = async (setBookings) => {
     }
 }
 
+const deleteBookings = async (id) => {
+    try {
+        return await axios.delete(`http://localhost:3000/api/booking/${id}`, {
+
+        }).then((response) => {
+
+        })
+    } catch (error) {
+
+    }
+}
+
 export {
-    getBookings
+    getAllBookings,
+    deleteBookings
 }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { GuestContext } from '../../Context/GhuestContext'
-import { getBookings } from '../../services/bookingServices/bookingServices'
+import { getAllBookings } from '../../services/bookingServices/bookingServices'
 import { getAllGuest } from '../../services/guestServices/guestServices'
 import AddGuestModalComponent from '../AddGuestModalComponent/AddGuestModalComponent'
 import BookingTableComponent from '../BookinTableComponent/BookingTableComponent'
@@ -13,7 +13,7 @@ export const TabsComponent = () => {
 
     useEffect(() => {
         getAllGuest(setGuest);
-        getBookings(setBookings);
+        getAllBookings(setBookings);
     }, [])
 
     return (

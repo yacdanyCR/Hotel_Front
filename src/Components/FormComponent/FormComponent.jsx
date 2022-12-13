@@ -27,6 +27,7 @@ export const FormComponent = ({ setModal }) => {
     const handleSubmitGuest = (e) => {
         e.preventDefault();
         addGuest(newGuest, setGuest);
+
         setModal("none");
         Swal.fire(
             'New Guest Added!',
