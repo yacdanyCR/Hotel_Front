@@ -1,8 +1,9 @@
 import React, { useContext, useState } from 'react'
+import Swal from 'sweetalert2';
 import { GuestContext } from '../../Context/GhuestContext';
 import { addGuest } from '../../services/guestServices/guestServices';
 
-export const FormComponent = () => {
+export const FormComponent = ({ setModal }) => {
     const { setGuest } = useContext(GuestContext);
     const [newGuest, setNewGuest] = useState({
         name: "",
@@ -26,6 +27,12 @@ export const FormComponent = () => {
     const handleSubmitGuest = (e) => {
         e.preventDefault();
         addGuest(newGuest, setGuest);
+        setModal("none");
+        Swal.fire(
+            'New Guest Added!',
+            'You clicked the button!',
+            'success'
+        )
     }
 
     return (

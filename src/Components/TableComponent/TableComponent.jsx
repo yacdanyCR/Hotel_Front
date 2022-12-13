@@ -5,14 +5,32 @@ import { GuestContext } from '../../Context/GhuestContext';
 import { deleteGuest } from '../../services/guestServices/guestServices';
 import Moment from 'react-moment';
 import ModalUpdate from '../ModalUpdate/ModalUpdate';
+import Swal from 'sweetalert2';
 
 export const TableComponent = () => {
     const { guest, setGuest } = useContext(GuestContext);
 
     const handleDelete = async (guestId) => {
-        const newData = guest.filter((el) => el.id !== guestId);
-        setGuest(newData);
-        deleteGuest(guestId);
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
+                const newData = guest.filter((el) => el.id !== guestId);
+                setGuest(newData);
+                deleteGuest(guestId);
+            }
+        })
     }
 
     return (

@@ -21,7 +21,7 @@ export const AddGuestModalComponent = () => {
                                 <div className="img_modal">
                                     <img src="/img/logo.png" alt='logo' />
                                 </div>
-                                <FormComponent />
+                                <FormComponent setModal={setModal} />
                             </div>
                         </div>
                     </div>
