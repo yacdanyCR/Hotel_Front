@@ -19,16 +19,10 @@
 
 .modal_input input,
 select {
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 5px;
     margin-top: 10px;
     border-style: outset;
-}
-
-.img_modal {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 #modal-content-guest {

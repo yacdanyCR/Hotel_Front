@@ -41,6 +41,7 @@ export const BookingTableComponent = () => {
                         <th>Check In</th>
                         <th>Check Out</th>
                         <th>Payment</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
