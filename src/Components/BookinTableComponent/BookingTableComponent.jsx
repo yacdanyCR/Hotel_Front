@@ -1,10 +1,9 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import Moment from 'react-moment';
 import { AiFillDelete } from "react-icons/ai";
 import { GuestContext } from '../../Context/GhuestContext'
 import { deleteBookings } from '../../services/bookingServices/bookingServices';
 import Swal from 'sweetalert2';
-import LoaderComponent from '../LoaderComponent/LoaderComponent';
 
 export const BookingTableComponent = () => {
     const { bookings, setBookings } = useContext(GuestContext);
@@ -41,32 +40,31 @@ export const BookingTableComponent = () => {
                         <th>Check In</th>
                         <th>Check Out</th>
                         <th>Payment</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    {bookings.length === 0
-                        ? <LoaderComponent />
-                        : bookings.map((el) => {
-                            return (
-                                <tr key={el.id_guest}>
-                                    <td>
-                                        {el.id_guest}
-                                    </td>
-                                    <td>
-                                        <Moment format="MM/DD/YYYY">{el.check_in}</Moment>
-                                    </td>
-                                    <td>
-                                        <Moment format="MM/DD/YYYY">{el.check_out}</Moment>
-                                    </td>
-                                    <td>
-                                        {el.payment}
-                                    </td>
-                                    <td>
-                                        <AiFillDelete size={20} color={'red'} onClick={() => handleDelete(el.id_guest)} />
-                                    </td>
-                                </tr>
-                            )
-                        })}
+                    {bookings.map((el) => {
+                        return (
+                            <tr key={el.id_guest}>
+                                <td>
+                                    {el.id_guest}
+                                </td>
+                                <td>
+                                    <Moment format="MM/DD/YYYY">{el.check_in}</Moment>
+                                </td>
+                                <td>
+                                    <Moment format="MM/DD/YYYY">{el.check_out}</Moment>
+                                </td>
+                                <td>
+                                    {el.payment}
+                                </td>
+                                <td>
+                                    <AiFillDelete size={20} color={'red'} onClick={() => handleDelete(el.id_guest)} />
+                                </td>
+                            </tr>
+                        )
+                    })}
                 </tbody>
             </table>
         </>
