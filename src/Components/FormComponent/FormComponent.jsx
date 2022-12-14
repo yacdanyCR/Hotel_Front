@@ -1,10 +1,11 @@
 import React, { useContext, useState } from 'react'
 import Swal from 'sweetalert2';
 import { GuestContext } from '../../Context/GhuestContext';
+import { getAllBookings } from '../../services/bookingServices/bookingServices';
 import { addGuest } from '../../services/guestServices/guestServices';
 
 export const FormComponent = ({ setModal }) => {
-    const { setGuest } = useContext(GuestContext);
+    const { setGuest, setBookings } = useContext(GuestContext);
     const [newGuest, setNewGuest] = useState({
         name: "",
         lastname: "",
@@ -27,6 +28,7 @@ export const FormComponent = ({ setModal }) => {
     const handleSubmitGuest = (e) => {
         e.preventDefault();
         addGuest(newGuest, setGuest);
+        getAllBookings(setBookings);
 
         setModal("none");
         Swal.fire(
