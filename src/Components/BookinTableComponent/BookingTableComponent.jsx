@@ -4,7 +4,6 @@ import { AiFillDelete } from "react-icons/ai";
 import { GuestContext } from '../../Context/GhuestContext'
 import { deleteBookings } from '../../services/bookingServices/bookingServices';
 import Swal from 'sweetalert2';
-import LoaderComponent from '../LoaderComponent/LoaderComponent';
 
 export const BookingTableComponent = () => {
     const { bookings, setBookings } = useContext(GuestContext);
