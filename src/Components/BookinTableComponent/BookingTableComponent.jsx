@@ -45,29 +45,27 @@ export const BookingTableComponent = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {bookings.length === 0
-                        ? <LoaderComponent />
-                        : bookings.map((el) => {
-                            return (
-                                <tr key={el.id_guest}>
-                                    <td>
-                                        {el.id_guest}
-                                    </td>
-                                    <td>
-                                        <Moment format="MM/DD/YYYY">{el.check_in}</Moment>
-                                    </td>
-                                    <td>
-                                        <Moment format="MM/DD/YYYY">{el.check_out}</Moment>
-                                    </td>
-                                    <td>
-                                        {el.payment}
-                                    </td>
-                                    <td>
-                                        <AiFillDelete size={20} color={'red'} onClick={() => handleDelete(el.id_guest)} />
-                                    </td>
-                                </tr>
-                            )
-                        })}
+                    {bookings.map((el) => {
+                        return (
+                            <tr key={el.id_guest}>
+                                <td>
+                                    {el.id_guest}
+                                </td>
+                                <td>
+                                    <Moment format="MM/DD/YYYY">{el.check_in}</Moment>
+                                </td>
+                                <td>
+                                    <Moment format="MM/DD/YYYY">{el.check_out}</Moment>
+                                </td>
+                                <td>
+                                    {el.payment}
+                                </td>
+                                <td>
+                                    <AiFillDelete size={20} color={'red'} onClick={() => handleDelete(el.id_guest)} />
+                                </td>
+                            </tr>
+                        )
+                    })}
                 </tbody>
             </table>
         </>

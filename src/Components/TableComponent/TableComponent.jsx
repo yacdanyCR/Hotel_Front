@@ -6,7 +6,6 @@ import { deleteGuest } from '../../services/guestServices/guestServices';
 import Moment from 'react-moment';
 import ModalUpdate from '../ModalUpdate/ModalUpdate';
 import Swal from 'sweetalert2';
-import LoaderComponent from '../LoaderComponent/LoaderComponent';
 
 export const TableComponent = () => {
     const { guest, setGuest } = useContext(GuestContext);
@@ -49,21 +48,19 @@ export const TableComponent = () => {
                 </thead>
                 <tbody>
 
-                    {guest.length === 0
-                        ? <LoaderComponent />
-                        : guest.map((el) => {
-                            return (
-                                <tr key={el.id}>
-                                    <td>{el.name}</td>
-                                    <td>{el.lastname}</td>
-                                    <td>{el.phone}</td>
-                                    <td><Moment format="MM/DD/YYYY">{el.birthdate}</Moment></td>
-                                    <td>{el.country}</td>
-                                    <td><ModalUpdate guest={el} /></td>
-                                    <td onClick={() => handleDelete(el.id)}><AiFillDelete color='red' size={25} /></td>
-                                </tr>
-                            )
-                        })}
+                    {guest.map((el) => {
+                        return (
+                            <tr key={el.id}>
+                                <td>{el.name}</td>
+                                <td>{el.lastname}</td>
+                                <td>{el.phone}</td>
+                                <td><Moment format="MM/DD/YYYY">{el.birthdate}</Moment></td>
+                                <td>{el.country}</td>
+                                <td><ModalUpdate guest={el} /></td>
+                                <td onClick={() => handleDelete(el.id)}><AiFillDelete color='red' size={25} /></td>
+                            </tr>
+                        )
+                    })}
                 </tbody>
             </table>
         </>
