@@ -16,11 +16,9 @@ const deleteBookings = async (id) => {
     try {
         return await axios.delete(`http://localhost:3000/api/booking/${id}`, {
 
-        }).then((response) => {
-
-        })
+        });
     } catch (error) {
-
+        console.log(error);
     }
 }
 

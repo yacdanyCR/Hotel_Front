@@ -25,10 +25,10 @@ export const FormComponent = ({ setModal }) => {
             return { ...prev, [name]: value }
         })
     }
-    const handleSubmitGuest = (e) => {
+    const handleSubmitGuest = async (e) => {
         e.preventDefault();
-        addGuest(newGuest, setGuest);
-        getAllBookings(setBookings);
+        await addGuest(newGuest, setGuest);
+        await getAllBookings(setBookings);
 
         setModal("none");
         Swal.fire(

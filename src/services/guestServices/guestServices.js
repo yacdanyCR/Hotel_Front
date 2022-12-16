@@ -8,13 +8,13 @@ const getAllGuest = async (setGuest) => {
                 setGuest(data.data);
             })
     } catch (error) {
-
+        console.log(error);
     }
 }
 
 const addGuest = async ({ name, lastname, birthdate, country, phone, checkin, checkout, payment }, setGuest) => {
     try {
-        axios.post("http://localhost:3000/api/guest", {
+        await axios.post("http://localhost:3000/api/guest", {
             name,
             lastname,
             birthdate,
@@ -23,11 +23,11 @@ const addGuest = async ({ name, lastname, birthdate, country, phone, checkin, ch
             checkin,
             checkout,
             payment
-        }).then((response) => {
+        }).then(() => {
             getAllGuest(setGuest);
         })
     } catch (error) {
-
+        console.log(error)
     }
 }
 
@@ -38,7 +38,7 @@ const deleteGuest = async (id) => {
                 return response
             })
     } catch (error) {
-
+        console.log(error);
     }
 }
 
@@ -67,7 +67,7 @@ const searchGuest = async (search, setGuest) => {
             setGuest(response.data);
         })
     } catch (error) {
-
+        console.log(error);
     }
 }
 
