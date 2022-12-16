@@ -8,7 +8,7 @@ const authUser = async (username, password) => {
             password
         }).then((response) => {
             if (!response.data.auth) {
-                errorAlert("Usuario o contraseña incorrecta.!");
+                errorAlert("Incorrect user or password.!");
             }
             return response.data.auth;
         })
