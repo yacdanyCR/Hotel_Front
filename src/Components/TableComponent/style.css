@@ -3,6 +3,10 @@
     width: 100%;
 }
 
+.table_Data td {
+    width: 100px;
+}
+
 .table_Data td,
 .table_Data th {
     border: 1px solid #ddd;

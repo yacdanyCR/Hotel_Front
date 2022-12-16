@@ -80,3 +80,9 @@
     opacity: 1;
     transition: all 0.35s;
 }
+
+@media only screen and (max-width: 600px) {
+    .tab-content {
+        width: max-content;
+    }
+}
