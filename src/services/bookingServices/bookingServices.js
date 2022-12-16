@@ -2,7 +2,7 @@ import axios from "axios"
 
 const getAllBookings = async (setBookings) => {
     try {
-        return await axios.get("http://localhost:3000/api/booking", {
+        return await axios.get("https://hotel-backend-production.up.railway.app/api/booking", {
 
         }).then((response) => {
             setBookings(response.data);
@@ -14,7 +14,7 @@ const getAllBookings = async (setBookings) => {
 
 const deleteBookings = async (id) => {
     try {
-        return await axios.delete(`http://localhost:3000/api/booking/${id}`, {
+        return await axios.delete(`https://hotel-backend-production.up.railway.app/api/booking/${id}`, {
 
         });
     } catch (error) {

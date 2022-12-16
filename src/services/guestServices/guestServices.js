@@ -3,7 +3,7 @@ import { successAlert } from "../../alerts/sweetAlert";
 
 const getAllGuest = async (setGuest) => {
     try {
-        return await axios.get("http://localhost:3000/api/guest")
+        return await axios.get("https://hotel-backend-production.up.railway.app/api/guest")
             .then((data) => {
                 setGuest(data.data);
             })
@@ -14,7 +14,7 @@ const getAllGuest = async (setGuest) => {
 
 const addGuest = async ({ name, lastname, birthdate, country, phone, checkin, checkout, payment }, setGuest) => {
     try {
-        await axios.post("http://localhost:3000/api/guest", {
+        await axios.post("https://hotel-backend-production.up.railway.app/api/guest", {
             name,
             lastname,
             birthdate,
@@ -33,7 +33,7 @@ const addGuest = async ({ name, lastname, birthdate, country, phone, checkin, ch
 
 const deleteGuest = async (id) => {
     try {
-        axios.delete(`http://localhost:3000/api/guest/${id}`)
+        axios.delete(`https://hotel-backend-production.up.railway.app/api/guest/${id}`)
             .then((response) => {
                 return response
             })
@@ -44,7 +44,7 @@ const deleteGuest = async (id) => {
 
 const updateCurrentGuest = async ({ id, name, lastname, phone, country }, setGuest) => {
     try {
-        return await axios.put(`http://localhost:3000/api/guest`, {
+        return await axios.put(`https://hotel-backend-production.up.railway.app/api/guest`, {
             id,
             name,
             lastname,
@@ -61,7 +61,7 @@ const updateCurrentGuest = async ({ id, name, lastname, phone, country }, setGue
 
 const searchGuest = async (search, setGuest) => {
     try {
-        axios.get(`http://localhost:3000/api/guest/${search}`, {
+        axios.get(`https://hotel-backend-production.up.railway.app/api/guest/${search}`, {
 
         }).then((response) => {
             setGuest(response.data);

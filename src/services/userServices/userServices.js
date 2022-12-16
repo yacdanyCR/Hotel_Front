@@ -3,7 +3,7 @@ import { errorAlert, successAlert } from "../../alerts/sweetAlert";
 
 const registerUser = async (username, password) => {
     try {
-        return await axios.post("http://localhost:3000/api/user", {
+        return await axios.post("https://hotel-backend-production.up.railway.app/api/user", {
             username,
             password
         }).then((response) => {
