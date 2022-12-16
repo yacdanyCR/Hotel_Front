@@ -36,7 +36,7 @@ export const BookingTableComponent = () => {
             <table className='table_Data'>
                 <thead>
                     <tr>
-                        <th>Id Guest</th>
+                        <th>Guest</th>
                         <th>Check In</th>
                         <th>Check Out</th>
                         <th>Payment</th>
@@ -48,7 +48,7 @@ export const BookingTableComponent = () => {
                         return (
                             <tr key={el.id_guest}>
                                 <td>
-                                    {el.id_guest}
+                                    {el.name + " " + el.lastname}
                                 </td>
                                 <td>
                                     <Moment format="MM/DD/YYYY">{el.check_in}</Moment>
